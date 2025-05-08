@@ -1,26 +1,61 @@
-pipeline{
+pipeline {
     agent any
-    environment{
-        NAME="JESWIN"
-    }
-    stages{
-        stage('Build'){
-            steps{
-                echo "Build started and completed!"
-                sh 'java --version'
-            }
-        }
-    stage('Test'){
-            steps{
-                echo "Test started and completed!"
-            }
-        }
-    stage('Deploy'){
-            steps{
-                echo "$NAME, Deployment is done "    
-            }
-        }
-    }
 
+    stages {
+        stage('Build') {
+            steps {
+                // Task: Compile and package the application.
+                // Tool: Maven (for Java) or npm (for Node.js)
+                echo 'Build: Compile and package the code using Maven.'
+            }
+        }
+
+        stage('Unit and Integration Tests') {
+            steps {
+                // Task: Run unit and integration tests.
+                // Tool: JUnit (Java), Mocha (Node.js)
+                echo 'Test: Run unit and integration tests using JUnit or Mocha.'
+            }
+        }
+
+        stage('Code Analysis') {
+            steps {
+                // Task: Analyze code quality and adherence to coding standards.
+                // Tool: SonarQube or ESLint (for JavaScript)
+                echo 'Code Analysis: Analyze code using SonarQube to ensure standards are met.'
+            }
+        }
+
+        stage('Security Scan') {
+            steps {
+                // Task: Identify security vulnerabilities in the codebase.
+                // Tool: Snyk or npm audit (for Node.js), OWASP Dependency-Check (for Java)
+                echo 'Security Scan: Perform security analysis using Snyk or OWASP Dependency-Check.'
+            }
+        }
+
+        stage('Deploy to Staging') {
+            steps {
+                // Task: Deploy the application to a staging environment.
+                // Tool: AWS CLI or SCP to AWS EC2 instance
+                echo 'Deploy to Staging: Deploy application to staging environment using AWS CLI.'
+            }
+        }
+
+        stage('Integration Tests on Staging') {
+            steps {
+                // Task: Run integration tests on the staging environment.
+                // Tool: Postman/Newman or Selenium
+                echo 'Staging Tests: Run integration tests on staging using Selenium or Postman.'
+            }
+        }
+
+        stage('Deploy to Production') {
+            steps {
+                // Task: Deploy the final version to production.
+                // Tool: AWS CLI, Docker, or Ansible
+                echo 'Deploy to Production: Push final build to production server using AWS CLI or Docker.'
+            }
+        }
+    }
 }
-
