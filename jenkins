@@ -1,0 +1,26 @@
+pipeline{
+    agent any
+    environment{
+        NAME="JESWIN"
+    }
+    stages{
+        stage('Build'){
+            steps{
+                echo "Build started and completed!"
+                sh 'java --version'
+            }
+        }
+    stage('Test'){
+            steps{
+                echo "Test started and completed!"
+            }
+        }
+    stage('Deploy'){
+            steps{
+                echo "$NAME, Deployment is done "    
+            }
+        }
+    }
+
+}
+
