@@ -41,6 +41,13 @@ pipeline {
                 echo 'Deploy to Staging: Deploy application to staging environment using AWS CLI.'
             }
         }
+           stage('Integration Tests on Staging') {
+            steps {
+                // Task: Run integration tests on the staging environment.
+                // Tool: Postman/Newman or Selenium
+                echo 'Staging Tests: Run integration tests on staging using Selenium or Postman.'
+            }
+        }
 
      
 
