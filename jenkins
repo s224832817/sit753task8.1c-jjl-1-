@@ -2,7 +2,13 @@ pipeline {
     agent any
 
     stages {
-       
+         stage('Build') {
+            steps {
+                // Task: Compile and package the application.
+                // Tool: Maven (for Java) or npm (for Node.js)
+                echo 'Build: Compile and package the code using Maven.'
+            }
+        }
         stage('Unit and Integration Tests') {
             steps {
                 // Task: Run unit and integration tests.
