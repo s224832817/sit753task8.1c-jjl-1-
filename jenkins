@@ -54,5 +54,10 @@ pipeline {
                 echo 'Deploy to Production: Push final build to production server using AWS CLI or Docker.'
             }
         }
+    stage('Health Check') {
+        steps {
+            echo 'Running health checks...'
+        }
+    }
     }
 }
